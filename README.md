@@ -25,6 +25,12 @@ The training code produces Tensorboard logs. To see these logs, run Tensorboard 
 ### Running as SLATE
 To run on images or single frame "videos", set the episode length to 1 by setting the argument `--ep_len 1`. When doing this, you may want to increase the number of slot attention iterations using the argument `--num_iterations`. This is because STEVE typically uses a small value like 1 or 2 because it can use several frames of a video to do more refinement. However, because SLATE has to do refinement using a single frame, one may need to set this to 3 or 7 as prescribed in the original SLATE implementation.
 
+### Packages Required
+The following packages may need to be installed first.
+- [PyTorch](https://pytorch.org/)
+- [TensorBoard](https://pypi.org/project/tensorboard/) for logging.
+- [MoviePy](https://pypi.org/project/moviepy/) to produce video visualizations in the tensorboard logs.
+
 ### Code Files
 This repository provides the following files.
 - `train.py` contains the training script.
