@@ -118,6 +118,7 @@ optimizer = Adam([
 if checkpoint is not None:
     optimizer.load_state_dict(checkpoint['optimizer'])
 
+
 def visualize(video, recon_dvae, recon_tf, attns, N=8):
     B, T, C, H, W = video.size()
 
