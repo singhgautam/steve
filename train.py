@@ -3,6 +3,7 @@ import os.path
 import argparse
 
 import torch
+import torchvision.utils as vutils
 
 from torch.optim import Adam
 from torch.nn import DataParallel as DP
@@ -14,7 +15,7 @@ from datetime import datetime
 
 from steve import STEVE
 from data import GlobVideoDataset
-from utils import visualize, cosine_anneal, linear_warmup
+from utils import cosine_anneal, linear_warmup
 
 
 parser = argparse.ArgumentParser()
@@ -116,6 +117,27 @@ optimizer = Adam([
 
 if checkpoint is not None:
     optimizer.load_state_dict(checkpoint['optimizer'])
+
+def visualize(video, recon_dvae, recon_tf, attns, N=8):
+    B, T, C, H, W = video.size()
+
+    frames = []
+    for t in range(T):
+        video_t = video[:N, t, None, :, :, :]
+        recon_dvae_t = recon_dvae[:N, t, None, :, :, :]
+        recon_tf_t = recon_tf[:N, t, None, :, :, :]
+        attns_t = attns[:N, t, :, :, :, :]
+
+        # tile
+        tiles = torch.cat((video_t, recon_dvae_t, recon_tf_t, attns_t), dim=1).flatten(end_dim=1)
+
+        # grid
+        frame = vutils.make_grid(tiles, nrow=(args.num_slots + 3), pad_value=0.8)
+        frames += [frame]
+
+    frames = torch.stack(frames, dim=0).unsqueeze(0)
+
+    return frames
 
 
 for epoch in range(start_epoch, args.epochs):

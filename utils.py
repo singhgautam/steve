@@ -1,7 +1,7 @@
+import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torchvision.utils as vutils
 
 
 def cosine_anneal(step, start_value, final_value, start_step, final_step):
@@ -38,28 +38,6 @@ def linear_warmup(step, start_value, final_value, start_step, final_step):
         value = a * progress + b
 
     return value
-
-
-def visualize(video, recon_dvae, recon_tf, attns, N=8):
-    B, T, C, H, W = video.size()
-
-    frames = []
-    for t in range(T):
-        video_t = video[:N, t, None, :, :, :]
-        recon_dvae_t = recon_dvae[:N, t, None, :, :, :]
-        recon_tf_t = recon_tf[:N, t, None, :, :, :]
-        attns_t = attns[:N, t, :, :, :, :]
-
-        # tile
-        tiles = torch.cat((video_t, recon_dvae_t, recon_tf_t, attns_t), dim=1).flatten(end_dim=1)
-
-        # grid
-        frame = vutils.make_grid(tiles, nrow=(args.num_slots + 3), pad_value=0.8)
-        frames += [frame]
-
-    frames = torch.stack(frames, dim=0).unsqueeze(0)
-
-    return frames
 
 
 def gumbel_softmax(logits, tau=1., hard=False, dim=-1):
