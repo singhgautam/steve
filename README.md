@@ -10,9 +10,7 @@ This is the **official PyTorch implementation** of the STEVE model and its train
 While the code is designed to handle videos, it can be run on static images by providing single-frame "videos" as input. This can be seen as SLATE and this was also used as the SLATE baseline in the paper.
 
 ### Dataset
-Any of the MOVi-A/B/C/D/E datasets can be downloaded using the script `download_movi.py`.
-
-The remaining datasets used in the paper i.e., CATER-Tex, MOVi-Tex, MOVi-Solid, Youtube-Traffic and Youtube-Aquarium, shall be released soon.
+Any of the MOVi-A/B/C/D/E datasets can be downloaded using the script `download_movi.py`. The remaining datasets used in the paper i.e., CATER-Tex, MOVi-Tex, MOVi-Solid, Youtube-Traffic and Youtube-Aquarium, shall be released soon.
 
 ### Training
 To train the model, simply execute:
