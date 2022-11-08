@@ -1,5 +1,7 @@
 
-# STEVE: Slot-Transformer for Videos
+# STEVE: Slot-Transformer for Videos 
+
+#### [[arXiv](https://arxiv.org/abs/2205.14065)] [[project](https://sites.google.com/view/slot-transformer-for-videos)]
 
 This is the **official PyTorch implementation** of the STEVE model and its training script. We also provide a downloader script for the MOVi datasets.
 
@@ -9,6 +11,8 @@ While the code is designed to handle videos, it can be run on static images by p
 
 ### Dataset
 Any of the MOVi-A/B/C/D/E datasets can be downloaded using the script `download_movi.py`.
+
+The remaining datasets used in the paper i.e., CATER-Tex, MOVi-Tex, MOVi-Solid, Youtube-Traffic and Youtube-Aquarium, shall be released soon.
 
 ### Training
 To train the model, simply execute:
