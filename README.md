@@ -36,6 +36,9 @@ This repository provides the following files.
 - `transformer.py` provides the model classes for Transformer.
 - `utils.py` provides helper classes and functions.
 
+### Evaluation
+See the branch named `evaluate` for the evaluation scripts.
+
 ### Citation
 ```
 @article{Singh2022SimpleUO,
