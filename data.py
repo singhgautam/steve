@@ -54,20 +54,11 @@ class GlobVideoDataset(Dataset):
 
 
 class GlobVideoDatasetWithMasks(Dataset):
-    def __init__(self, root, phase, img_size, num_segs, ep_len=6, img_glob='*_image.png'):
+    def __init__(self, root, img_size, num_segs, ep_len=6, img_glob='*_image.png'):
         self.root = root
         self.img_size = img_size
         self.total_dirs = sorted(glob.glob(root))
         self.ep_len = ep_len
-
-        if phase == 'train':
-            self.total_dirs = self.total_dirs[:int(len(self.total_dirs) * 0.7)]
-        elif phase == 'val':
-            self.total_dirs = self.total_dirs[int(len(self.total_dirs) * 0.7):int(len(self.total_dirs) * 0.85)]
-        elif phase == 'test':
-            self.total_dirs = self.total_dirs[int(len(self.total_dirs) * 0.85):]
-        else:
-            pass
 
         # chunk into episodes
         self.episodes_rgb = []

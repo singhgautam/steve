@@ -46,7 +46,7 @@ args = parser.parse_args()
 
 torch.manual_seed(args.seed)
 
-eval_dataset = GlobVideoDatasetWithMasks(root=args.data_path, phase='full', img_size=args.image_size, num_segs=args.data_num_segs_per_frame,
+eval_dataset = GlobVideoDatasetWithMasks(root=args.data_path, img_size=args.image_size, num_segs=args.data_num_segs_per_frame,
                                         ep_len=args.ep_len, img_glob='????????_image.png')
 
 eval_sampler = None
