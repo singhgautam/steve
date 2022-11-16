@@ -41,11 +41,13 @@ See the branch named `evaluate` for the evaluation scripts.
 
 ### Citation
 ```
-@article{Singh2022SimpleUO,
+@inproceedings{
+  singh2022simple,
   title={Simple Unsupervised Object-Centric Learning for Complex and Naturalistic Videos},
   author={Gautam Singh and Yi-Fu Wu and Sungjin Ahn},
-  journal={ArXiv},
+  booktitle={Advances in Neural Information Processing Systems},
+  editor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},
   year={2022},
-  volume={abs/2205.14065}
+  url={https://openreview.net/forum?id=eYfIM88MTUE}
 }
 ```
