@@ -7,6 +7,9 @@ This is the **official PyTorch implementation** of the STEVE model and its train
 
 <img src="https://i.imgur.com/P6seoRd.gif">
 
+### Authors
+Gautam Singh and Yi-Fu Wu and Sungjin Ahn
+
 ### Dataset
 Any of the MOVi-A/B/C/D/E datasets can be downloaded using the script `download_movi.py`. The remaining datasets used in the paper i.e., CATER-Tex, MOVi-Tex, MOVi-Solid, Youtube-Traffic and Youtube-Aquarium, shall be released soon.
 
