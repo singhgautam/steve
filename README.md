@@ -1,5 +1,6 @@
 
 # STEVE: Slot-Transformer for Videos 
+*NeurIPS 2022*
 
 #### [[arXiv](https://arxiv.org/abs/2205.14065)] [[project](https://sites.google.com/view/slot-transformer-for-videos)]
 
